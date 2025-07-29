@@ -2,90 +2,118 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Convite Especial - Aniversário Fernando Vidal</title>
+  <title>Convite de Aniversário de Fernando Vidal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link 
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet"
-  >
+    rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
   <style>
     body {
-      background: linear-gradient(to right, #f2f2f2, #ffffff);
+      background: linear-gradient(to bottom, #007bff, #e0f0ff);
       font-family: 'Segoe UI', sans-serif;
+      color: #333;
     }
     .container {
-      margin-top: 40px;
-      max-width: 750px;
+      max-width: 800px;
+      margin: 60px auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
-    .mapa {
+    h1 {
+      font-size: 2.5rem;
+      color: #0d6efd;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .lead {
+      font-size: 1.25rem;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .btn-confirm {
+      display: block;
+      width: 100%;
+      font-size: 1.2rem;
+      margin: 20px 0;
+    }
+    .section-title {
+      font-weight: 600;
+      margin-top: 30px;
+    }
+    iframe {
       width: 100%;
       height: 300px;
-      border: 0;
+      border: none;
       border-radius: 10px;
-      margin-top: 20px;
+      margin-top: 10px;
     }
-    .btn-confirmar {
-      background-color: #c43c3c;
-      color: white;
+    .list-group-item {
+      font-weight: 500;
+      color: #555;
     }
-    .btn-confirmar:hover {
-      background-color: #a62d2d;
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Convite de Aniversário de Fernando Vidal 🎉</h1>
+    <p class="lead">Você faz parte de um grupo seleto de pessoas especiais. Venha celebrar comigo essa noite inesquecível!</p>
 
-<div class="container shadow-lg p-5 bg-white rounded">
-  <h1 class="text-center text-danger mb-4">🎉 Convite de Aniversário 🎉</h1>
-  <h1 class="text-center text-danger mb-4">🎉 Fernando Vidal 🎉</h1>
-  <p class="text-center fs-5">
-    No dia <strong>08 de agosto de 2025</strong> é meu aniversário, e claro que tu está convidado(a)!<br><br>
-    <strong>Reservei um camarote só pra gente se divertir</strong>, dar risada e curtir juntos. <br>
-    Só chamei quem é realmente especial pra mim... hummm 👀
-  </p>
+    <hr>
 
-  <hr>
+    <h5 class="section-title">📍 Local:</h5>
+    <p>Patrimônio - 4º Distrito<br>R. Conselheiro Camargo, 212 - São Geraldo, Porto Alegre - RS</p>
 
-  <div class="mb-3">
-    <h4>🗓 Data:</h4>
-    <p>08 de agosto de 2025</p>
+    <h5 class="section-title">📅 Data:</h5>
+    <p>08 de agosto de 2025<br>🕕 Das 18h até 00h</p>
+    <p>🎟️ Entrada garantida até 19h30 com nome na lista.</p>
 
-    <h4>🕒 Horário:</h4>
-    <p>Das 18h até as 00h</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSehAU_lKYnOmk63Q46RIFHyQy-BZ4e2hMjRgWdv9pVTpi-gzA/viewform?usp=header" target="_blank" class="btn btn-primary btn-confirm">Confirmar presença agora</a>
 
-    <h4>⏱ Entrada VIP:</h4>
-    <p>Com nome na lista <strong>das 18h às 19h30</strong></p>
+    <h5 class="section-title">🗺️ Mapa do Local:</h5>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.392796262847!2d-51.21576418520872!3d-30.01467823289406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x951979106c15a145%3A0x4bc4883210c0273d!2sR.%20Conselheiro%20Camargo%2C%20212%20-%20S%C3%A3o%20Geraldo%2C%20Porto%20Alegre%20-%20RS%2C%2090230-130!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
 
-    <h4>📍 Local:</h4>
-    <p><strong>Patrimônio - 4º Distrito</strong><br>R. Conselheiro Camargo, 212 - São Geraldo<br>Porto Alegre - RS, 90230-130</p>
+    <h5 class="section-title text-success mt-5">✅ Confirmados até agora:</h5>
+    <ul id="nomes-confirmados" class="list-group mt-3"></ul>
+
+    <footer>Com carinho, Fernando Vidal</footer>
   </div>
 
-  <iframe 
-    class="mapa"
-    src="https://www.google.com/maps?q=R.+Conselheiro+Camargo,+212+-+São+Geraldo,+Porto+Alegre+-+RS,+90230-130&output=embed"
-    allowfullscreen="" 
-    loading="lazy">
-  </iframe>
+  <script>
+    const sheetID = "10LhSHljOk0ZjZ1Jbd8-ENzsIAjn-euJTzBLj9D7QhYQ";
+    const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:csv&sheet=confirmados`;
 
-  <hr class="my-4">
-
-  <h4 class="mb-3">📩 Confirma tua presença</h4>
-  <form action="https://formsubmit.co/fernandovidal107@gmail.com" method="POST">
-    <div class="mb-3">
-      <label for="nome" class="form-label">Seu nome completo (pra lista)</label>
-      <input type="text" class="form-control" id="nome" name="nome" required>
-    </div>
-
-    <div class="mb-3">
-      <label for="email" class="form-label">Seu e-mail (opcional)</label>
-      <input type="email" class="form-control" id="email" name="email">
-    </div>
-
-    <input type="hidden" name="_next" value="https://fvs107.github.io/convite-aniversario/obrigado.html">
-
-    <button type="submit" class="btn btn-confirmar w-100 mt-3">Confirmar Presença ✅</button>
-  </form>
-</div>
-
+    fetch(url)
+      .then(response => response.text())
+      .then(csv => {
+        Papa.parse(csv, {
+          header: true,
+          complete: function(results) {
+            const lista = document.getElementById("nomes-confirmados");
+            results.data.forEach(item => {
+              if (item.Nome && item.Nome.trim() !== "") {
+                const li = document.createElement("li");
+                li.className = "list-group-item";
+                li.textContent = item.Nome;
+                lista.appendChild(li);
+              }
+            });
+          }
+        });
+      });
+  </script>
 </body>
 </html>
